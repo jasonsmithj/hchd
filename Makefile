@@ -2,13 +2,15 @@
 
 
 LOCAL_DOCKER_COMPOSE  = ./docker/docker-compose.local.yml
-COMPOSE_OPTS        = -f "$(LOCAL_DOCKER_COMPOSE)" -p hchm
+COMPOSE_OPTS        = -f "$(LOCAL_DOCKER_COMPOSE)" -p hchd
 
-setup:
+go_build:
+	./scripts/build
+
+setup: go_build
 	docker-compose $(COMPOSE_OPTS) up -d --build
 
-build:
-	./scripts/build
+build: go_build
 	docker-compose $(COMPOSE_OPTS) build
 
 stop:

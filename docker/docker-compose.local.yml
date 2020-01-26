@@ -1,6 +1,6 @@
 version: '3'
 services:
-  hchm:
+  hchd:
     image: healthcheck-container-http-mysql:latest
     build:
       context: ../
@@ -21,9 +21,9 @@ services:
       DB_PORT: ${DB_PORT}
     command: ./app
     depends_on:
-      - hchm-db
-    container_name: hchm
-  hchm-db:
+      - hchd-db
+    container_name: hchd
+  hchd-db:
     image: mysql:5.7
     environment:
       MYSQL_DATABASE: ${DB_NAME}
@@ -35,4 +35,4 @@ services:
     command: mysqld
     volumes:
       - ./.db/mysql_data:/var/lib/mysql
-    container_name: hchm-db
+    container_name: hchd-db

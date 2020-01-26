@@ -5,7 +5,7 @@
 K8s/ECS等のコンテナサービスにおいてアプリケーションの完成を待たずに環境構築を行う場合、に
 http及びmysqlへのNWレベル疎通確認を行うコンテナです。
 
-![](./.doc/hchm.png)
+![](./.doc/hchd.png)
 
 ## Usage
 ### create .env file
@@ -19,7 +19,7 @@ http及びmysqlへのNWレベル疎通確認を行うコンテナです。
 CONTAINER_PORT|httpのポート番号|8081
 ENV|環境名(任意)|dev
 IMAGE|コンテナイメージ名(image_name:tag)|healthcheck-container-http-mysql:latest
-DB_ENDPOINT|DBサーバのエンドポイント|hchm-db
+DB_ENDPOINT|DBサーバのエンドポイント|hchd-db
 DB_USER|DBユーザ名|healthcheck
 DB_PASSWORD|DBパスワード|password
 DB_NAME|DBテーブル名|healthcheck
