@@ -21,11 +21,11 @@ func GetDBUri() string {
 	connectTemplate := "%s:%s@tcp(%s:%s)/%s"
 	return fmt.Sprintf(
 		connectTemplate,
-		Get().DBUser,
-		Get().DBPassword,
-		Get().DBEndpoint,
-		Get().DBPort,
-		Get().DBName,
+		globalConfig.DBUser,
+		globalConfig.DBPassword,
+		globalConfig.DBEndpoint,
+		globalConfig.DBPort,
+		globalConfig.DBName,
 	)
 }
 
