@@ -29,14 +29,14 @@ AWS ECRやGCP GCR等にpushし、ご利用している環境にデプロイし�
 `command` には `./app` を指定するとサーバが起動します。
 
 ### HTTP Origin
-### HTTP healthcheck
+#### HTTP healthcheck
 http://your_url/v1/healthcheck
 
-### MySQL healthcheck
+#### MySQL healthcheck
 http://your_url/v1/mysql/healthcheck
 
-#### Succeeded Message
+##### Succeeded Message
 {"message":"Succeeded"}
 
-#### Failed Message
+##### Failed Message
 {"message":"Failed"}
