@@ -1,0 +1,13 @@
+## editor
+.idea/*
+
+## build artifacts
+.artifacts/*
+
+## database metadata
+docker/.db/*
+
+## env file
+.env
+
+!.keep

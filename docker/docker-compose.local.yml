@@ -1,0 +1,38 @@
+version: '3'
+services:
+  hchm:
+    image: healthcheck-container-http-mysql:latest
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+      args:
+        CONTAINER_PORT: ${CONTAINER_PORT}
+    expose:
+      - "${CONTAINER_PORT}"
+    ports:
+      - "${CONTAINER_PORT}:${CONTAINER_PORT}"
+    environment:
+      ENV: ${ENV}
+      APP_PORT: ${CONTAINER_PORT}
+      DB_ENDPOINT: ${DB_ENDPOINT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+    command: ./app
+    depends_on:
+      - hchm-db
+    container_name: hchm
+  hchm-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 13306:3306
+    command: mysqld
+    volumes:
+      - ./.db/mysql_data:/var/lib/mysql
+    container_name: hchm-db
