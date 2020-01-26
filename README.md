@@ -30,13 +30,13 @@ AWS ECRやGCP GCR等にpushし、ご利用している環境にデプロイし�
 
 ### HTTP Origin
 #### HTTP healthcheck
-http://your_url/v1/healthcheck
+`http://your_url/v1/healthcheck`
 
 #### MySQL healthcheck
-http://your_url/v1/mysql/healthcheck
+`http://your_url/v1/mysql/healthcheck`
 
 ##### Succeeded Message
-{"message":"Succeeded"}
+`{"message":"Succeeded"}`
 
 ##### Failed Message
-{"message":"Failed"}
+`{"message":"Failed"}`
