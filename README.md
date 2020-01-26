@@ -5,6 +5,7 @@
 K8s/ECS等のコンテナサービスにおいてアプリケーションの完成を待たずに環境構築を行う場合、に
 http及びmysqlへのNWレベル疎通確認を行うコンテナです。
 
+![](./.doc/hchm.png)
 
 ## Usage
 ### create .env file
