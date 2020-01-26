@@ -17,9 +17,10 @@ func connect() *gorm.DB {
 }
 
 func Healthcheck() error {
-
 	c := connect()
-	defer c.Close()
 	err := c.DB().Ping()
+
+	defer c.Close()
+
 	return err
 }

@@ -12,8 +12,7 @@ type Config struct {
 	DBUser     string `envconfig:"DB_USER"`
 	DBPassword string `envconfig:"DB_PASSWORD"`
 	DBName     string `envconfig:"DB_NAME"`
-	DBPort    string `envconfig:"DB_PORT"`
-
+	DBPort     string `envconfig:"DB_PORT"`
 }
 
 var globalConfig Config
@@ -27,7 +26,7 @@ func GetDBUri() string {
 		Get().DBEndpoint,
 		Get().DBPort,
 		Get().DBName,
-		)
+	)
 }
 
 func Load() {
