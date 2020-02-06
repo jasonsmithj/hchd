@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jasonsmithj/hchd/internal/adapter/persistence/mysql/model"
+	"github.com/jasonsmithj/hchd/internal/adapter/persistence/postgres/model"
 )
 
-func connectMysql(c *gin.Context) {
-	err := model.MySQLHealthcheck()
+func connectPostgres(c *gin.Context) {
+	err := model.PostgresHealthcheck()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Failed",

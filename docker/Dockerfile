@@ -16,4 +16,4 @@ RUN apk update \
 USER jason
 EXPOSE $CONTAINER_PORT
 WORKDIR /app/jason/
-COPY ./.artifacts/healthcheck-linux-amd64 ./app
+COPY ./.artifacts/hchd-linux-amd64 ./app

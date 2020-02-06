@@ -3,4 +3,4 @@
 set -e
 
 cd "$(dirname "$0")/.."
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./.artifacts/healthcheck-linux-amd64 ./cmd/healthcheck-http-mysql
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./.artifacts/hchd-linux-amd64 ./cmd/hchd

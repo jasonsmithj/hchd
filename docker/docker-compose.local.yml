@@ -1,7 +1,7 @@
 version: '3'
 services:
   hchd:
-    image: healthcheck-container-http-mysql:latest
+    image: hchd:latest
     build:
       context: ../
       dockerfile: ./docker/Dockerfile
@@ -19,20 +19,37 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
       DB_PORT: ${DB_PORT}
+      REDIS_ENDPOINT: ${REDIS_ENDPOINT}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_DB: ${REDIS_DB}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
     command: ./app
     depends_on:
-      - hchd-db
+      - hchd-mysql
+      - hchd-postgres
+      - hchd-redis
     container_name: hchd
-  hchd-db:
+  hchd-mysql:
     image: mysql:5.7
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - 13306:3306
     command: mysqld
     volumes:
       - ./.db/mysql_data:/var/lib/mysql
-    container_name: hchd-db
+    container_name: hchd-mysql
+  hchd-redis:
+    image: redis:5.0.7
+    container_name: hchd-redis
+    command: >
+      --requirepass ${REDIS_PASSWORD}
+  hchd-postgres:
+    image: postgres:12.1-alpine
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    container_name: hchd-postgres
+

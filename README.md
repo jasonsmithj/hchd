@@ -36,6 +36,12 @@ AWS ECRやGCP GCR等にpushし、ご利用している環境にデプロイし�
 #### MySQL healthcheck
 `http://your_url/v1/mysql/healthcheck`
 
+#### Postgresql healthcheck
+`http://your_url/v1/postgres/healthcheck`
+
+#### REDIS healthcheck
+`http://your_url/v1/redis/healthcheck`
+
 ##### Succeeded Message
 `{"message":"Succeeded"}`
 
