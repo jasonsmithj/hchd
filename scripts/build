@@ -3,4 +3,4 @@
 set -e
 
 cd "$(dirname "$0")/.."
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./.artifacts/hchd-linux-amd64 ./cmd/hchd
+GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./.artifacts/hchd-linux-amd64 ./cmd/hchd
