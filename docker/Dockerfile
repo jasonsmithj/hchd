@@ -1,4 +1,4 @@
-FROM alpine:3.11.3
+FROM alpine:3.16.0
 
 MAINTAINER jasonsmithj
 ARG CONTAINER_PORT
