@@ -11,6 +11,8 @@ services:
       - "${CONTAINER_PORT}"
     ports:
       - "${CONTAINER_PORT}:${CONTAINER_PORT}"
+    env_file:
+      - .env
     environment:
       ENV: ${ENV}
       APP_PORT: ${CONTAINER_PORT}
